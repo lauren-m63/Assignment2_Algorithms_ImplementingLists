@@ -15,18 +15,32 @@ element should be in a new line when the resulting String is printed.
 // i have to make class of array list or it creates list manually in constructor
 // arraylist not array
 
+// can i put type as a parameter?-- or it says to do nodes so is it a linked list which is an array inisitlixed to a size
+// wait -- Implement an Array-based List that stores Song instances
+
+import org.w3c.dom.Node;
+
 import java.util.ArrayList;
 
 public class AList {
+    int maxSize;
+    Node head;
+    Node tail;
+    Song[] list;
 
-// can i put type as a parameter?
+    public AList(){
+        maxSize = 10;
+        list = new Song[maxSize];
+    }
+
     public AList(int maxSize){
-        ArrayList<> list
-        // empty constructor
+        this.maxSize = maxSize;
+        list = new Song[maxSize];
     }
 
     public void addy(Song p){
-        // add new node and resize array
+        // add new node and resize array-- so just add a song and then if it is full then adjust array size
+
     }
 
     public void removy(int pos){
@@ -35,7 +49,11 @@ public class AList {
 
     public String toString(){
 
-        return "AList"; // change
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < maxSize; i++){
+            sb.append(list[i] + "\n");
+        }
+        return sb.toString(); // change
     }
 
 }

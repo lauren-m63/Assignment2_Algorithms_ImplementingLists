@@ -10,7 +10,25 @@ pointers appropriately.
 updating the pointers appropriately.
 • String toString(): This method should return a string containing all the elements in the DLList. Each
 element should be in a new line when the resulting String is printed.
+
  */
 
+
+import java.util.ArrayList;
+
 public class DoublyLinkedList {
-}
+
+
+    public static void main(String[] args) {
+
+
+    }// END MAIN
+
+
+} // LAST BRACKET
+
+
+
+
+
+
