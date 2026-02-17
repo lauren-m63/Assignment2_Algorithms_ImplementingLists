@@ -65,8 +65,8 @@ public class DoublyLinkedList {
             }
 
             temp.next = temp.next.next;
-            if(temp.next.next != null){
-                temp.next.next.previous = temp;
+            if(temp.next != null){
+                temp.next.previous = temp;
             }
             else{
                 tail = temp;
