@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         runAList();
+        runSingleLinkedList();
     }
 
 
@@ -13,5 +14,13 @@ public class Main {
 
         alist.addy(song);
         System.out.println(alist.toString());
+    }
+
+    public static void runSingleLinkedList(){
+        SinglyLinkedList list = new SinglyLinkedList();
+        Song song = new Song();
+
+        list.addy(song);
+        System.out.println(list.toString());
     }
 }
