@@ -24,6 +24,13 @@ public class Song {
         this.length = length;
     }
 
+    // i have to maketostring in here too bc it still not working and maybe need later i guess
+    @Override
+    public String toString()
+    {
+        return songName + " by "+ artist +", duration: " +length;
+    }
+
 
 
 //    // id start from n-1 the back of the list and then id loop through with double nested loop

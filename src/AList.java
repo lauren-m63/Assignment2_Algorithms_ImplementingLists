@@ -22,13 +22,12 @@ import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 
-import static jdk.internal.jrtfs.JrtFileAttributeView.AttrID.size;
+//import static jdk.internal.jrtfs.JrtFileAttributeView.AttrID.size;
 
 public class AList {
     int maxSize;
-
     Song[] list;
-    int index;
+    int index= 0;
 
     public AList(){
         maxSize = 10;
@@ -47,22 +46,28 @@ public class AList {
         if (index == maxSize){
             maxSize *= 2;
             Song[] temp = new Song[maxSize];
-            System.arraycopy(list, 0, temp, 0, maxSize);
+            System.arraycopy(list, 0, temp, 0, index); // copy my list from 0 into my new list until index counter is hit
             list = temp;
         }
         list[index] = p; // keep track of where i am
-        index++;
+        index++; // so i strat at 0 so its put into 0 and then the next one will be 1
     }
 
     public void removy(int pos){
-
+        if (pos < 0 || pos>= index){ // check if chill
+            System.out.println("Invalid position");
+        }
+        for (int i = pos; i < index-1; i++){ // out of bounds if not -1 bc trying to access plus 1
+            list[i] = list[i+1]; // shift everything down one starting at the one you delete- itll jsut overwrite it
+                    // my thing is ordered so i cant just make it null i have to shift everythign
+        }
+        index--;
     }
-
+    @Override // if i dont override then it doesnt tostring it
     public String toString(){
-
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < maxSize; i++){
-            sb.append(list[i] + "\n");
+        for(int i = 0; i < index; i++){
+            sb.append(list[i]).append("\n"); // i cant use the plus i have to use append
         }
         return sb.toString(); // change
     }

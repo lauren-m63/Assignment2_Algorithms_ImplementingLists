@@ -13,4 +13,16 @@ element should be in a new line when the resulting String is printed.
  */
 
 public class SinglyLinkedList {
-}
+    SinglyLinkedNode head;
+    SinglyLinkedNode tail;
+
+    public SinglyLinkedList(){
+        head = null;
+        //tail = null;
+    } // construtor makes my empty list with two nodes being null the head and tail== wait i dont think i should put tail
+
+
+
+}// LAST BRACKET- END CLASS
+
+
