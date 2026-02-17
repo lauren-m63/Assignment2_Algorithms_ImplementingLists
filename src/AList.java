@@ -22,11 +22,13 @@ import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 
+import static jdk.internal.jrtfs.JrtFileAttributeView.AttrID.size;
+
 public class AList {
     int maxSize;
-    Node head;
-    Node tail;
+
     Song[] list;
+    int index;
 
     public AList(){
         maxSize = 10;
@@ -41,6 +43,15 @@ public class AList {
     public void addy(Song p){
         // add new node and resize array-- so just add a song and then if it is full then adjust array size
 
+        // if it is full resize it
+        if (index == maxSize){
+            maxSize *= 2;
+            Song[] temp = new Song[maxSize];
+            System.arraycopy(list, 0, temp, 0, maxSize);
+            list = temp;
+        }
+        list[index] = p; // keep track of where i am
+        index++;
     }
 
     public void removy(int pos){
