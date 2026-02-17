@@ -19,20 +19,60 @@ import java.util.ArrayList;
 // okay so basically the same thing but i just got to link it twice
 
 public class DoublyLinkedList {
-    SinglyLinkedNode head;
-    SinglyLinkedNode tail;
+     DoublyLinkedNode head;
+     DoublyLinkedNode tail;
     int index=0;
 
     public DoublyLinkedList(){
         head = null;
     }
 
-    public static void addy(Song p){
-
+    public void addy(Song p){
+        if (head == null){
+            head = new DoublyLinkedNode(p); // new one is head if empty
+            tail = head;// make tail also head lol i dont need this
+        }
+        else{
+            tail.next = new DoublyLinkedNode(p); // make tail .next to contie oops
+            // now i need to make this new one the tail
+            tail.next.previous = tail; // so im making my tail point to the new node, making my new nodes previous variable be the old tail
+            tail = tail.next; // then im making my new one update to now be the tail yes
+        }
+        index++;
     }
 
-    public static void removvy(int pos){
+    public void removvy(int pos){
+        if (head == null){
+            System.out.println("List is empty");
+        }
+        if (pos < 0 || pos>=index){
+            System.out.println("Invalid position");
+            return;
+        }
+        if (pos==0){
+            head = head.next;
+            if (head != null) {
+                head.previous = null;
+            } else{
+                    tail = null;
+                }// end else
+            }// end if
+        // also need to set tail to null or else its weird
+        else{
+            DoublyLinkedNode temp = head; // just a starter
+            for (int i=0; i<pos-1; i++){ // go to node before bc i stop 2 before in the loop its pos-1 which is pos-2 so temp is temp.next which is pos -1
+                temp = temp.next; // now temp is pos-1
+            }
 
+            temp.next = temp.next.next;
+            if(temp.next.next != null){
+                temp.next.next.previous = temp;
+            }
+            else{
+                tail = temp;
+            }
+        }
+        index--;
     }
 
 
@@ -43,7 +83,7 @@ public class DoublyLinkedList {
         //sb.append(Sin[i]).append("\n"); // i cant use the plus i have to use append
         // i want to append the nodes so i just use the loop for size so i should do like head and then .next and keep goig
         //sb.append(head.append("\n"))
-        SinglyLinkedNode node = head;
+        DoublyLinkedNode node = head;
         while (node != null){ // i can say if not null instread of before it reaches tail that makes way less sense
             sb.append(node.data).append("\n");
             node = node.next; // keeps moving forwards since its in a loop
