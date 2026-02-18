@@ -2,7 +2,6 @@ package generic;
 
 public class SinglyLinkedListGeneric<T> {
 
-    T data;
     SingleLNodeGeneric<T> head;
     SingleLNodeGeneric<T> tail;
     int index=0;
@@ -66,6 +65,9 @@ public class SinglyLinkedListGeneric<T> {
 
     @Override // if i dont override then it doesnt tostring it
     public String toString(){
+        if (head == null){
+            return"List is empty";
+        }
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < index; i++){}
         //sb.append(Sin[i]).append("\n"); // i cant use the plus i have to use append

@@ -43,6 +43,9 @@ public class AListGeneric <T>{
     }
     @Override // if i dont override then it doesnt tostring it
     public String toString(){
+        if (index == 0){
+            return "List is empty";
+        }
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < index; i++){
             sb.append(list[i]).append("\n"); // i cant use the plus i have to use append

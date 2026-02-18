@@ -1,13 +1,14 @@
 package generic;
 
 public class DoublyLinkedListGeneric <T>{
-    T data;
+
     DoubleLNodeGeneric<T> head;
     DoubleLNodeGeneric<T> tail;
     int index=0;
 
     public DoublyLinkedListGeneric(){
         head = null;
+        tail = null;
     }
 
     public void addy(T p){
@@ -24,7 +25,7 @@ public class DoublyLinkedListGeneric <T>{
         index++;
     }
 
-    public void removvy(int pos){
+    public void removy(int pos){
         if (head == null){
             System.out.println("List is empty");
             return;
@@ -62,6 +63,9 @@ public class DoublyLinkedListGeneric <T>{
 
     @Override // if i dont override then it doesnt tostring it
     public String toString(){
+        if (head == null){
+            return"List is empty";
+        }
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < index; i++){}
         //sb.append(Sin[i]).append("\n"); // i cant use the plus i have to use append

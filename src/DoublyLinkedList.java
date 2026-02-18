@@ -41,7 +41,7 @@ public class DoublyLinkedList {
         index++;
     }
 
-    public void removvy(int pos){
+    public void removy(int pos){
         if (head == null){
             System.out.println("List is empty");
         }
