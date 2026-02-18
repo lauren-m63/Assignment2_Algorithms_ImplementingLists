@@ -20,6 +20,8 @@ public class Main {
         SinglyLinkedListGeneric<Song> SinglesongsList = new SinglyLinkedListGeneric<>();
         DoublyLinkedListGeneric<Song> DoublesongsList = new DoublyLinkedListGeneric<>();
 
+        System.out.println(songsList.toString()); // empty rn
+
         songsList.addy(song1);
         songsList.addy(song2);
         songsList.addy(song3);
