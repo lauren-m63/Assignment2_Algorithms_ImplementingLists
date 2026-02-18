@@ -1,3 +1,7 @@
+import generic.AListGeneric;
+import generic.DoublyLinkedListGeneric;
+import generic.SinglyLinkedListGeneric;
+
 public class Main {
 
     static Song song1 = new Song("Coral Crown", "artist: Darren Korb",  4.07);
@@ -9,6 +13,34 @@ public class Main {
         runAList();
         runSingleLinkedList();
         runDoublyLinkedList();
+    }
+
+    public static void runGeneric(){
+        AListGeneric<Song> songsList = new AListGeneric<>();
+        SinglyLinkedListGeneric<Song> SinglesongsList = new SinglyLinkedListGeneric<>();
+        DoublyLinkedListGeneric<Song> DoublesongsList = new DoublyLinkedListGeneric<>();
+
+        songsList.addy(song1);
+        songsList.addy(song2);
+        songsList.addy(song3);
+
+        System.out.println(songsList.toString());
+
+        DoublesongsList.addy(song1);
+        DoublesongsList.addy(song2);
+        DoublesongsList.addy(song3);
+
+        System.out.println(SinglesongsList.toString());
+
+        SinglesongsList.addy(song1);
+        SinglesongsList.addy(song2);
+        SinglesongsList.addy(song3);
+
+        System.out.println(DoublesongsList.toString());
+
+        songsList.removy(2);
+
+        System.out.println(songsList.toString());
     }
 
 

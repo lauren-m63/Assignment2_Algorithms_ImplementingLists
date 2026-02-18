@@ -70,6 +70,7 @@ public class SinglyLinkedList {
                 tail=temp;
             }
         }
+        index--;
 
     }// end removvy
 
